@@ -1,3 +1,5 @@
+// import.meta
+
 import './style.scss'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
@@ -16,5 +18,6 @@ document.querySelector('#app').innerHTML = /*html*/`
     </p>
   </div>
 `
+console.log(import.meta.env.VITE_API_KEY);
 
 setupCounter(document.querySelector('#counter'))
