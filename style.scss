@@ -13,5 +13,55 @@ html {
 }
 
 body {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 4.6rem;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+.title {
+    font-family: $title-font;
+}
+
+.header {
+    width: 100%;
+    height: 80px;
+    background: $dark-foreground;
+    color: $primary-purple;
+    align-content: center;
+    .header__container {
+        width: 100%;
+        max-width: 1400px;
+        padding: 0 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .input {
+        background-color: transparent;
+        background-image: url(./public/magnifying-glass-solid.svg);
+        background-repeat: no-repeat;
+        background-position: center right;
+        background-size: 28px 28px;
+        border: unset;
+        color: $primary-purple;
+        height: 34px;
+        padding-right: 40px;
+        font-weight: bold;
+        padding-bottom: 2px;
+        cursor: pointer;
+        transition: 0.8s;
+        &:focus-visible {
+            border-bottom: 1px solid $primary-purple;
+            margin-bottom: -1px;
+            cursor: auto;
+        }
+    }
 }
