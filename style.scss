@@ -15,6 +15,8 @@ html {
 body {
     font-size: 1.8rem;
     font-weight: 500;
+    color: $primary-purple;
+    background-color: $dark-background;
 }
 
 h1 {
@@ -23,7 +25,11 @@ h1 {
 }
 
 h2 {
-    font-size: 3.2rem;
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 2.8rem;
 }
 
 .title {
@@ -59,9 +65,39 @@ h2 {
         cursor: pointer;
         transition: 0.8s;
         &:focus-visible {
-            border-bottom: 1px solid $primary-purple;
-            margin-bottom: -1px;
+            border-bottom: 2px solid $primary-purple;
+            margin-bottom: -2px;
             cursor: auto;
+        }
+    }
+}
+
+main {
+    padding: 60px 50px;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.carousel__section {
+    margin-bottom: 60px;
+    .carousel__header {
+        display: flex;
+        justify-content: space-between;
+        h2.title {
+            margin-bottom: 18px;
+        }
+    }
+    .carousel__container {
+        display: flex;
+        .item__thumbnail {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+        }
+        .item__title {
+            margin-top: 12px;
         }
     }
 }
