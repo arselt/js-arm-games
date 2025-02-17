@@ -89,15 +89,22 @@ main {
     }
     .carousel__container {
         display: flex;
+        overflow: auto hidden;
+        gap: 2rem;
+        .item-container {
+            width: 300px;
+            height: auto;
+        }
         .item__thumbnail {
             width: 100%;
-            max-width: 300px;
+            min-width: 300px;
             height: auto;
-            aspect-ratio: 3/4;
+            aspect-ratio: 16/9;
             object-fit: cover;
         }
         .item__title {
             margin-top: 12px;
+            margin-bottom: 16px;
         }
     }
 }
