@@ -22,18 +22,33 @@ body {
 h1 {
     font-size: 4.6rem;
     text-transform: uppercase;
+    @media (max-width: 640px) {
+        font-size: 3.6rem;
+    }
 }
 
 h2 {
     font-size: 4rem;
+    @media (max-width: 640px) {
+        font-size: 3rem;
+    }
 }
 
 h3 {
     font-size: 2.8rem;
+    @media (max-width: 640px) {
+        font-size: 2.6rem;
+    }
 }
 
 .title {
     font-family: $title-font;
+}
+
+a {
+    text-decoration: none;
+    color: $primary-purple;
+    font-family: $body-font;
 }
 
 .header {
@@ -52,7 +67,7 @@ h3 {
     }
     .input {
         background-color: transparent;
-        background-image: url(./public/magnifying-glass-solid.svg);
+        background-image: url(../../magnifying-glass-solid.svg);
         background-repeat: no-repeat;
         background-position: center right;
         background-size: 28px 28px;
@@ -78,6 +93,39 @@ main {
     max-width: 1400px;
 }
 
+.list__section {
+    margin-bottom: 60px;
+    .list__header {
+        display: flex;
+        justify-content: space-between;
+        h2.title {
+            margin-bottom: 18px;
+        }
+    }
+    .list__container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        .category__item {
+            display: block;
+            background-color: $dark-foreground;
+            padding: 8px 16px;
+            flex-grow: 1; 
+            flex-shrink: 1;
+            text-align: center;
+            max-width: 210px;
+            min-width: 130px;
+            @media (max-width: 580px) {
+                max-width: unset;
+                min-width: unset;
+            }
+            a {
+                display: inline-block;
+            }
+        }
+    }
+}
+
 .carousel__section {
     margin-bottom: 60px;
     .carousel__header {
@@ -100,7 +148,16 @@ main {
             min-width: 300px;
             height: auto;
             aspect-ratio: 16/9;
-            object-fit: cover;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                background-color: $dark-foreground;
+                font-family: $body-font;
+            }
         }
         .item__title {
             margin-top: 12px;
