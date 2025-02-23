@@ -15,7 +15,10 @@
     <header class="header">
       <div class="header__container">
         <h1 class="title"><a href="/">ARM-Games</a></h1>
-        <input type="text" class="input input--search" name="" id="">
+        <form id="searchForm" class="header__search">
+          <input type="text" class="header__search--input">
+          <button id="searchButton" class="header__search--button" aria-label="Search"></button>
+        </form>
       </div>
     </header>
     <main>
@@ -46,6 +49,23 @@
         </div>
       </section>
     </main>
+    <dialog class="game-modal">
+      <a class="game-modal__close-button">X</a>
+      <article class="game-modal__container">
+        <div class="game-modal__header">
+          <h2 class="title game-modal__title">Game Name</h2>
+          <p class="game-modal__rating"> Rating: 5.0 </p>
+        </div>
+        <div class="game-modal__content">
+          <h3 class="title game-modal__subtitle">About</h3>
+          <p class="game-modal__release-date">Release Date</p>
+          <div class="game-modal__description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem minus cum veritatis debitis, veniam vitae modi earum incidunt, ea voluptate odio autem adipisci harum provident sequi laudantium, quos sapiente mollitia.
+          </div>
+          <!-- <button>Save</button> -->
+        </div>
+      </article>
+    </dialog>
     <footer></footer>
     <script type="module" src="/src/main.js"></script>
   </body>
