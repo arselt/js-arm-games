@@ -1,48 +1,50 @@
-import { getGamesPreview, getCategories, actionateModal, getGameInfo, searchGame } from "./main.js";
+import { renderGames, renderCategories, renderGameModal } from "./ui.js";
+import { fetchGames, fetchCategories, fetchGameDetails } from "./api.js";
 
-const searchInput = document.querySelector('#searchForm input');
-const searchButton = document.querySelector('#searchButton');
-
-searchButton.addEventListener('click', () => {
-    location.hash = '#search=' + searchInput.value;
-})
-
-window.addEventListener('hashchange', navigator, false);
-
-export default function navigator(){
-
-    if (location.hash.startsWith('#trends')) {
+export function navigator() {
+    if (location.hash.startsWith("#trends")) {
         TrendsPage();
-    } else if (location.hash.startsWith('#search=')) {
-        SearchAction();
-    } else if (location.hash.startsWith('#category=')) {
+    } else if (location.hash.startsWith("#search=")) {
+        SearchPage();
+    } else if (location.hash.startsWith("#category=")) {
         CategoryPage();
-    } else if (location.hash.startsWith('#game=')) {
+    } else if (location.hash.startsWith("#game=")) {
         GamePage();
     } else {
         TrendsPage();
     }
-
+    
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
-};
-
-function SearchAction() {
-    searchGame(location.hash.split('=')[1])
-    getCategories();
 }
 
-function TrendsPage() {
-    getGamesPreview();
-    getCategories();
-};
+async function TrendsPage() {
+    const categories = await fetchCategories();
+    renderCategories(categories);
+    const games = await fetchGames();
+    renderGames(games, "Popular Games");
+}
 
-function CategoryPage() {
-    getGamesPreview(location.hash.split('=')[1]);
-    getCategories();
-};
+async function SearchPage() {
+    const categories = await fetchCategories();
+    renderCategories(categories);
+    const query = location.hash.split("=")[1];
+    const games = await fetchGames(null, query);
+    renderGames(games, `Results for ${query.replace(/%20/g, " ")}`);
+}
 
-function GamePage() {
-    actionateModal();
-    getGameInfo(location.hash.split('=')[1]);
-};
+async function CategoryPage() {
+    const categories = await fetchCategories();
+    renderCategories(categories);
+    const category = location.hash.split("=")[1];
+    const games = await fetchGames(category);
+    renderGames(games, `Popular ${category} Games`);
+}
+
+async function GamePage() {
+    const gameSlug = location.hash.split("=")[1];
+    const game = await fetchGameDetails(gameSlug);
+    renderGameModal(game);
+}
+
+window.addEventListener("hashchange", navigator, false);

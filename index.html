@@ -14,7 +14,7 @@
   <body>
     <header class="header">
       <div class="header__container">
-        <h1 class="title"><a href="/">ARM-Games</a></h1>
+        <h1 class="header__logo-container"><a href="/"><img src="./logo.png" alt="ARM-GAMES" class="header__logo"></a></h1>
         <form id="searchForm" class="header__search">
           <input type="text" class="header__search--input">
           <button id="searchButton" class="header__search--button" aria-label="Search"></button>
@@ -27,6 +27,10 @@
           <h2 class="title">Popular</h2>
         </div>
         <div class="carousel__container">
+          <div class="item__thumbnail loading-skeleton"></div>
+          <div class="item__thumbnail loading-skeleton"></div>
+          <div class="item__thumbnail loading-skeleton"></div>
+          <div class="item__thumbnail loading-skeleton"></div>
         </div>
       </section>
       <section class="list__section list__section--categories">
@@ -34,7 +38,12 @@
           <h2 class="title">Categories</h3>
         </div>
         <ul class="list__container">
-
+          <li class="category__item loading-skeleton"><a class="category__link"></a></li>
+          <li class="category__item loading-skeleton"><a class="category__link"></a></li>
+          <li class="category__item loading-skeleton"><a class="category__link"></a></li>
+          <li class="category__item loading-skeleton"><a class="category__link"></a></li>
+          <li class="category__item loading-skeleton"><a class="category__link"></a></li>
+          <li class="category__item loading-skeleton"><a class="category__link"></a></li>
         </ul>
       </section>
       <section class="carousel__section--saved carousel__section">
@@ -62,7 +71,6 @@
           <div class="game-modal__description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem minus cum veritatis debitis, veniam vitae modi earum incidunt, ea voluptate odio autem adipisci harum provident sequi laudantium, quos sapiente mollitia.
           </div>
-          <!-- <button>Save</button> -->
         </div>
       </article>
     </dialog>
