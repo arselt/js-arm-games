@@ -8,12 +8,13 @@ const api = axios.create({
     params: { key: API_KEY }
 });
 
-export async function fetchGames(category = null, query = null) {
+export async function fetchGames(category = null, query = null, page = 1) {
     const params = {
         dates: "2024-09-01,2025-12-31",
         ordering: "-rating",
-        page_size: 20,
-        ...(category && { genres: category }),
+        page_size: 40,
+        page: page,
+        ...(category && { genres: category, dates: "2023-01-01,2025-12-31" }),
         ...(query && { search: query, page_size: 40, dates: "" })
     };
 

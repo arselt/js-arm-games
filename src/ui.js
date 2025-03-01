@@ -23,6 +23,26 @@ export function renderGames(games, title) {
     });
 }
 
+export function appendGames(games) {
+    const gameListContainer = document.querySelector(".carousel__section--popular .carousel__container");
+
+    games.forEach(game => {
+        const gameContainer = document.createElement("article");
+        gameContainer.setAttribute("id", game.slug);
+        gameContainer.classList.add("item-container");
+
+        gameContainer.innerHTML = `
+            <div class="item__thumbnail">
+                <img src="${game.background_image}" alt="${game.name} thumbnail" loading="lazy">
+            </div>
+            <h3 class="item__title title">${game.name}</h3>
+            <a href="#game=${game.slug}" class="item__link">View Game</a>
+        `;
+
+        gameListContainer.appendChild(gameContainer);
+    });
+}
+
 export function renderCategories(categories) {
     const categoriesList = document.querySelector(".list__section--categories .list__container");
     categoriesList.innerHTML = "";
