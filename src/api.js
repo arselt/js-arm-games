@@ -1,11 +1,10 @@
 import axios from "axios";
-import { API_KEY } from "./secrets.js";
 import { EXCLUDED_TAGS } from "./config.js";
 
 const api = axios.create({
     baseURL: "https://api.rawg.io/api/",
     headers: { "Content-Type": "application/json; charset=utf-8" },
-    params: { key: API_KEY }
+    params: { key: import.meta.env.VITE_API_KEY }
 });
 
 export async function fetchGames(category = null, query = null, page = 1) {

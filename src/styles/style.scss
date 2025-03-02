@@ -361,6 +361,24 @@ main {
     }
 }
 
+footer {
+    width: 100%;
+    height: 80px;
+    background: $dark-foreground;
+    color: $primary-purple;
+    text-align: center;
+    padding: 25px;
+    font-family: $body-font;
+    a {
+        text-decoration: underline;
+        opacity: 0.7;
+        transition: 0.2s;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
 .loading-skeleton {
     background-color: $dark-foreground;
     animation:  skelenton;
