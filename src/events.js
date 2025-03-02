@@ -18,7 +18,6 @@ export function setupInfiniteScroll() {
         const newSearchQuery = searchMatch ? decodeURIComponent(searchMatch[1]) : null;
 
         if (newCategory !== currentCategory || newSearchQuery !== currentSearchQuery) {
-            console.log(`🔄 Cambiando vista a: ${newCategory ? `Category: ${newCategory}` : newSearchQuery ? `Search: ${newSearchQuery}` : "Home"}`);
 
             currentCategory = newCategory;
             currentSearchQuery = newSearchQuery;

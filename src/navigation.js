@@ -1,4 +1,4 @@
-import { renderGames, renderCategories, renderGameModal } from "./ui.js";
+import { renderGames, renderCategories, renderGameModal, getSavedGames } from "./ui.js";
 import { fetchGames, fetchCategories, fetchGameDetails } from "./api.js";
 
 export function navigator() {
@@ -13,6 +13,8 @@ export function navigator() {
     } else {
         TrendsPage();
     }
+
+    getSavedGames();
     
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;

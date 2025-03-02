@@ -33,3 +33,27 @@ export async function fetchGameDetails(gameSlug) {
     const { data } = await api.get(`/games/${gameSlug}`);
     return data;
 }
+
+export function savedGamesList() {
+    const item = JSON.parse(localStorage.getItem('saved_games'));
+    let games;
+    if (item) {
+        games = item;
+    } else {
+        games = {};
+    }
+
+    return games;
+}
+
+export function saveGame(game) {
+    const savedGames = savedGamesList();
+    
+    if (savedGames[game.slug]) {
+        savedGames[game.slug] = undefined;
+    } else {
+        savedGames[game.slug] = { slug: game.slug, background_image: game.background_image, name: game.name };
+    }
+
+    localStorage.setItem('saved_games', JSON.stringify(savedGames));
+}
